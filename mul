@@ -1,0 +1,10 @@
+echo "Dame un numero"
+read j
+d=0
+r=1
+while [ $d -le $j ]
+do
+r=`expr $r \* $d`
+echo $r "*" $d "=" $r
+d=`expr $d \+1`
+done
