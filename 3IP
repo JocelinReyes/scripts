@@ -1,0 +1,4 @@
+echo "Ip a denegar"
+read ip
+
+/sbin/iptables -A INPUT -p tcp -s $ip --dport 22 -j DROP
