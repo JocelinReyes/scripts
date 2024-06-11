@@ -1,0 +1,4 @@
+echo "Ip a denegar" 
+read ip
+
+/sbin/iptables -A INPUT -p icmp -s $ip -j DROP
