@@ -1,0 +1,52 @@
+while true
+do
+echo "Menu principal"
+echo "1. Denegar ping remoto por ip
+2. Permitir ping remoto por ip
+3. Denegar puerto 22 por ip
+4. Permitir puerto 22 por ip
+5. Denegar puerto 22 por un rango de ips
+6. Permitir puerto 22 por un rango de ips
+7. Denegar puerto 22 por direccion MAC
+8. Permitir puerto 22 por direccion MAC
+9. Observar estado de reglas
+10. Salir
+seleccione una opcion"
+read x
+case $x in
+1)
+./pingRemotoA.sh
+;;
+2)
+./pingRemotoD.sh
+;;
+3)
+./ip22A.sh
+;;
+4)
+./ip22D.sh
+;;
+5)
+./denegacion.sh
+;;
+6)
+echo "Ingresa la primera ip: "
+read ipInicial
+echo "Ingresa la ultima ip: "
+read ipFinal
+iptables -D INPUT -p tcp --dport 22 -m iprange --src-range $ipInicial-$ipFinal -j DROP
+;;
+7)
+./macA.sh
+;;
+8)
+./macD.sh
+;;
+9)
+./reglas.sh
+;;
+10)
+exit
+;;
+esac
+done
