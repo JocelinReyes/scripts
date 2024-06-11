@@ -1,0 +1,4 @@
+echo "ingrese ip a permitir"
+read ip
+
+/sbin/iptables -D INPUT -p icmp -s $ip -j DROP
